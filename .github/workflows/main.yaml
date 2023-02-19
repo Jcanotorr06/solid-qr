@@ -1,4 +1,4 @@
-name: Main
+name: CI
 
 on:
     push:
@@ -6,13 +6,14 @@ on:
             - "**"
 
 jobs:
-    format:
+    build:
         runs-on: ubuntu-latest
 
         steps:
             - uses: actions/checkout@v3
-            - uses: pnpm/action-setup@v2.2.4
-
+            - uses: pnpm/action-setup@v2
+              with:
+                  version: 7
             - name: Setup Node.js environment
               uses: actions/setup-node@v3
               with:
@@ -20,7 +21,7 @@ jobs:
                   cache: "pnpm"
 
             - name: Install dependencies
-              run: pnpm install --frozen-lockfile
+              run: pnpm install
 
             - name: Build
               run: pnpm run format && pnpm run typecheck && pnpm run build
