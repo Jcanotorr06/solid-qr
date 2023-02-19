@@ -1,9 +1,9 @@
 {
     "version": "1.0.0",
     "name": "solid-qr",
-    "description": "A QR code generator for SolidJS",
+    "description": "A minimal QR code image generator for SolidJS",
     "license": "MIT",
-    "author": "Joseph Cano",
+    "author": "Jcanotorr06",
     "contributors": [],
     "repository": {
         "type": "git",
