@@ -1,3 +1,5 @@
+import { JSX } from "solid-js/jsx-runtime"
+
 /* Options to generate QR code */
 export type QrOptions = {
     version?: number
@@ -13,7 +15,9 @@ export type QrOptions = {
     width?: number
 }
 
-export type Props = {
+type Base = JSX.IntrinsicElements["img"] & {
     text: string
     options?: QrOptions
 }
+
+export type Props = Omit<Base, "src" | "alt" | "height" | "width">

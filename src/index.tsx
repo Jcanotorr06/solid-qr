@@ -1,14 +1,13 @@
 import { Component, createSignal } from "solid-js"
 import Qr from "qrcode"
-import type { Props as QRProps } from "./types"
+import type { Props } from "./types"
 import { defaultOptions } from "./defaultOptions"
 
-export const SolidQR: Component<QRProps> = (props: QRProps) => {
-    const { text, options = defaultOptions } = props
+export const SolidQR: Component<Props> = (props: Props) => {
+    const { text, options = defaultOptions, ...rest } = props
 
     const [qr, setQr] = createSignal<string | undefined>(undefined)
     const generateQr = (text: string) => {
-        const canvas = document.getElementById("qr_container")
         // @ts-ignore
         Qr.toDataURL(undefined, text, options, (error, url) => {
             if (error) {
@@ -21,7 +20,7 @@ export const SolidQR: Component<QRProps> = (props: QRProps) => {
     }
 
     generateQr(text)
-    return <img src={qr()} />
+    return <img src={qr()} {...rest} />
 }
 
 export default SolidQR
