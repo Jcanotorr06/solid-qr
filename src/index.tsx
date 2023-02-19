@@ -1,5 +1,5 @@
 import { Component, createSignal } from "solid-js"
-import Qr from "qrcode"
+import { toDataURL } from "qrcode"
 import type { Props } from "./types"
 import { defaultOptions } from "./defaultOptions"
 
@@ -9,7 +9,7 @@ export const SolidQR: Component<Props> = (props: Props) => {
     const [qr, setQr] = createSignal<string | undefined>(undefined)
     const generateQr = (text: string) => {
         // @ts-ignore
-        Qr.toDataURL(undefined, text, options, (error, url) => {
+        toDataURL(undefined, text, options, (error, url) => {
             if (error) {
                 console.error(error)
                 throw error
