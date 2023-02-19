@@ -3,7 +3,7 @@ import Qr from "qrcode"
 import type { Props as QRProps } from "./types"
 import { defaultOptions } from "./defaultOptions"
 
-export const QRCode: Component<QRProps> = (props: QRProps) => {
+export const SolidQR: Component<QRProps> = (props: QRProps) => {
     const { text, options = defaultOptions } = props
 
     const [qr, setQr] = createSignal<string | undefined>(undefined)
@@ -24,4 +24,4 @@ export const QRCode: Component<QRProps> = (props: QRProps) => {
     return <img src={qr()} />
 }
 
-export default QRCode
+export default SolidQR
