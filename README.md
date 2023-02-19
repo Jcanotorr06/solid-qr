@@ -53,13 +53,13 @@ The `solid-qr` component receives the same props as a regular `img` would, plus 
 1. `text`: A `string` used to generate the QR Code.
 2. `options`: An object with the following structure
 
-| key | Type | Default | Description |
-| --- | ---- |------- | ----------- | ----- |
-|  `verison` | `number` | | QR Code version ranging from 1 to 40. If not specified the more suitable value will be calculated.
-| `errorCorrectionLevel` | `"low" | "medium" | "quartile" | "high"` | `medium` | QR Code error correction level
-| `maskPattern` | `0 | 1 | 2 | 3 | 4 | 5 | 6 | 7` | |Mask pattern used to mask the symbol. If not specified the more suitable value will be calculated.
-| `margin` | `number` | `2` |  Define how much wide the quiet zone should be.
-| `scale` | `number` | `4` | Scale factor. A value of 1 means 1px per modules (black dots).
-| `width` | `number` | `512` | Forces a specific width for the output image.If width is too small to contain the qr symbol, this option will be ignored.Takes precedence over `scale`.
-| `color.dark`| `string` | `#000000ff` | Color of dark module. Value must be in hex format (RGBA).
-| `color.light` | `string` | `#ffffffff` | Color of light module. Value must be in hex format (RGBA).
+| **Key**              | **Type**                       | **Default** | **Description**                                                                                                                                         |
+|----------------------|--------------------------------|-------------|---------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `version`              | number                         |             | QR Code version ranging from 1 to 40. If not specified the more suitable value will be calculated.                                                      |
+| `errorCorrectionLevel` | `low \| medium \| quartile \| high` | `medium`      | QR Code error correction level                                                                                                                          |
+| `maskPattern`          | `1 \| 2 \| 3 \| 4 \| 5 \| 6 \| 7`      |             | Mask pattern used to mask the symbol. If not specified the more suitable value will be calculated.                                                      |
+| `margin`               | `number`                         | `2`           | Define how much wide the quiet zone should be.                                                                                                          |
+| `scale`                | `number`                         | `4`           | Scale factor. A value of 1 means 1px per modules (black dots).                                                                                          |
+| `width`                | `number`                         | `512`         | Forces a specific width for the output image.If width is too small to contain the qr symbol, this option will be ignored.Takes precedence over `scale`. |
+| `color.dark`           | `string`                         | `#000000ff`   | Color of dark module. Value must be in hex format (RGBA).                                                                                               |
+| `color.light`          | `string`                         | `#ffffffff`   | Color of light module. Value must be in hex format (RGBA).                                                                                              |
