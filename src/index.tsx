@@ -1,24 +1,27 @@
-import { Accessor, Component, createComputed, createSignal } from 'solid-js'
+import { Component, createSignal } from "solid-js"
+import Qr from "qrcode"
+import type { Props as QRProps } from "./types"
+import { defaultOptions } from "./defaultOptions"
 
-export function createHello(): [Accessor<string>, (to: string) => void] {
-  const [hello, setHello] = createSignal('Hello World!')
+export const QRCode: Component<QRProps> = (props: QRProps) => {
+    const { text, options = defaultOptions } = props
 
-  return [hello, (to: string) => setHello(`Hello ${to}!`)]
+    const [qr, setQr] = createSignal<string | undefined>(undefined)
+    const generateQr = (text: string) => {
+        const canvas = document.getElementById("qr_container")
+        // @ts-ignore
+        Qr.toDataURL(undefined, text, options, (error, url) => {
+            if (error) {
+                console.error(error)
+                throw error
+            } else {
+                setQr(url)
+            }
+        })
+    }
+
+    generateQr(text)
+    return <img src={qr()} />
 }
 
-export const Hello: Component<{ to?: string }> = props => {
-  const [hello, setHello] = createHello()
-
-  // This will only log during development, console is removed in production
-  console.log('Hello World!')
-
-  createComputed(() => {
-    if (typeof props.to === 'string') setHello(props.to)
-  })
-
-  return (
-    <>
-      <div>{hello()}</div>
-    </>
-  )
-}
+export default QRCode
