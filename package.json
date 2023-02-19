@@ -53,8 +53,10 @@
         "update-deps": "pnpm up -Li",
         "typecheck": "tsc --noEmit"
     },
+    "dependencies": {
+        "qrcode": "^1.5.1"
+    },
     "peerDependencies": {
-        "qrcode": "^1.5.1",
         "solid-js": "^1.6.0"
     },
     "devDependencies": {
