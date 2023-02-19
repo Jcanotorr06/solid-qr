@@ -1,5 +1,5 @@
 {
-    "version": "1.0.1",
+    "version": "1.0.2",
     "name": "solid-qr",
     "description": "A minimal QR code image generator for SolidJS",
     "license": "MIT",
