@@ -1,6 +1,6 @@
 import type { QrOptions } from "./types"
 
 export const defaultOptions: QrOptions = {
-    width: 512,
+    width: 256,
     margin: 2,
 }
